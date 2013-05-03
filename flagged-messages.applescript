@@ -6,7 +6,6 @@ set emailTagId to "" -- ID of tag to tag tasks
 set creationNotification to "Created Asana task"
 set errorNotification to "Error creating Asana task"
 set appName to "Outlook to Asana"
-set notificationIcon to "file:///Users/freewheeler/Dropbox/personal-stats/outlook-to-asana/checkbox.png"
 
 on urlencode(theText)
 	set theTextEnc to ""
@@ -71,7 +70,7 @@ tell application "Microsoft Outlook"
 			on error number errNum
 				if (errNum is not 0) then
 					tell application "GrowlHelperApp"
-						notify with name errorNotification title errorNotification description msgsubject application name appName image from location notificationIcon
+						notify with name errorNotification title errorNotification description msgsubject application name appName
 					end tell
 					
 					return
@@ -93,7 +92,7 @@ tell application "Microsoft Outlook"
 			
 			-- Notify via Growl
 			tell application "GrowlHelperApp"
-				notify with name creationNotification title creationNotification description msgsubject application name appName image from location notificationIcon
+				notify with name creationNotification title creationNotification description msgsubject application name appName
 			end tell
 			
 			-- Unflag
