@@ -21,12 +21,12 @@ Get your Asana API key in the account settings dialog
 
 Get the workspace ID of the Asana workspace you want tasks to be created in
 
-> curl -u '<API key>:' https://app.asana.com/api/1.0/workspaces 
+> curl -u '[API key]:' https://app.asana.com/api/1.0/workspaces 
 
 Get the project ID of the Asana project you want tasks to be created in
 
-> curl -u '<API key>:' https://app.asana.com/api/1.0/workspaces/<workspace ID>/projects
+> curl -u '[API key]:' https://app.asana.com/api/1.0/workspaces/[workspace ID]/projects
 
 Get the ID of the tag to assign to tasks
 
-> curl -u '<API key>:' https://app.asana.com/api/1.0/tags
+> curl -u '[API key]:' https://app.asana.com/api/1.0/tags
