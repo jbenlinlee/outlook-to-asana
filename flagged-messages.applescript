@@ -33,6 +33,17 @@ on urlencode(theText)
 	return theTextEnc
 end urlencode
 
+-- From http://www.j-schell.de/node/610
+on search_replace(haystack, needle, replacement)
+	set old_delimiters to AppleScript's text item delimiters
+	set AppleScript's text item delimiters to needle
+	set temp_list to every text item of haystack
+	set AppleScript's text item delimiters to replacement
+	set return_value to temp_list as text
+	set AppleScript's text item delimiters to old_delimiters
+	return return_value
+end search_replace
+
 tell application "GrowlHelperApp"
 	set allNotificationsList to {creationNotification, errorNotification}
 	set enabledNotificationsList to allNotificationsList
@@ -50,7 +61,8 @@ tell application "Microsoft Outlook"
 			
 			set msgcontent to plain text content of msg as string
 			set taskcontent to (characters 1 thru 80 of msgcontent as string) & "É"
-			
+			set taskcontent to search_replace(taskcontent, "'", "%27") of me -- Escape single quotes for commandline
+						
 			set msgsender to sender of msg
 			-- log address of msgsender
 			-- log name of msgsender
