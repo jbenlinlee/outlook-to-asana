@@ -7,6 +7,7 @@ set creationNotification to "Created Asana task"
 set errorNotification to "Error creating Asana task"
 set appName to "Outlook to Asana"
 
+-- From http://www.harvey.nu/applescript_url_encode_routine.html
 on urlencode(theText)
 	set theTextEnc to ""
 	repeat with eachChar in characters of theText
