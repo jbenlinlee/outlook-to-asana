@@ -70,6 +70,7 @@ tell application "Microsoft Outlook"
 			
 			set taskTitle to urlencode(msgsubject) of me
 			set taskNotes to urlencode("From: " & address of msgsender) of me
+			set taskNotes to taskNotes & "%0ASubject: " & taskTitle
 			set taskNotes to taskNotes & "%0A%0A---%0A" & taskcontent
 			
 			-- Create Asana task
