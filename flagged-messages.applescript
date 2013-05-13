@@ -57,7 +57,8 @@ tell application "Microsoft Outlook"
 	set fwinbox to inbox of fwaccount
 	
 	repeat with msg in messages of fwinbox
-		if todo flag of msg is not not flagged then
+		set msgflag to the todo flag of msg
+		if msgflag is not not flagged and msgflag is not completed then
 			set msgsubject to subject of msg as string
 			
 			set msgcontent to plain text content of msg as string
@@ -110,7 +111,7 @@ tell application "Microsoft Outlook"
 			end tell
 			
 			-- Unflag
-			set todo flag of msg to not flagged
+			set todo flag of msg to completed
 		end if
 	end repeat
 	
