@@ -110,8 +110,9 @@ tell application "Microsoft Outlook"
 				notify with name creationNotification title creationNotification description msgsubject application name appName
 			end tell
 			
-			-- Unflag
+			-- Unflag and mark as read
 			set todo flag of msg to completed
+			set is read of msg to true
 		end if
 	end repeat
 	
