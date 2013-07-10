@@ -56,7 +56,7 @@ tell application "Microsoft Outlook"
 	set fwaccount to exchange account "Freewheel"
 	set fwinbox to inbox of fwaccount
 	
-	repeat with msg in messages of fwinbox
+	repeat with msg in (messages of fwinbox whose todo flag is not not flagged)
 		set msgflag to the todo flag of msg
 		if msgflag is not not flagged and msgflag is not completed then
 			set msgsubject to subject of msg as string
