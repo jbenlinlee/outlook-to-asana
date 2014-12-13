@@ -1,9 +1,12 @@
 # Introduction
 
-This is an Applescript that creates Asana tasks from flagged Outlook messages.
+flagged-messages is an Applescript that creates Asana tasks from flagged Outlook messages.
 Once a task is created, the associated Outlook message is unflagged.
 Message subject is used for task title
 Sender and first 80 chars of message are used for task description
+
+outlook-asana-message is an Applescript that creates a message appropriate for an Asana task
+from the currently selected Outlook message.
 
 # Requirements
 - Outlook for Mac 2011
