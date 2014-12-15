@@ -8,10 +8,14 @@ tell application "Microsoft Outlook"
 	set msg_sender to sender of msg
 	set msg_time to time sent of msg
 	
+	-- What account was the message in?
+	set acct to account of msg
+	set myemail to email address of acct
+	
 	-- Create task message
 	set taskmsg_body to "From: " & name of msg_sender & " <" & address of msg_sender & ">" & nl & "Date: " & msg_time & nl & "Subject: " & subj & nl & nl
 	set taskmsg to make new outgoing message with properties {subject:subj}
 	set plain text content of taskmsg to taskmsg_body
-	make new to recipient at taskmsg with properties {email address:{address:"jlee@freewheel.tv"}}
+	make new to recipient at taskmsg with properties {email address:{address:myemail}}
 	open taskmsg
 end tell
